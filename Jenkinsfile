@@ -14,7 +14,7 @@ pipeline {
         stage('Docker Push') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'e1e81f62-9fd1-46ed-9f4c-b4e60508f663', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: '83176aa2-6f6b-49ae-b457-a3725b716f65', toolName: 'docker') {
                         sh "make push"
                     }
                 }  
@@ -23,7 +23,7 @@ pipeline {
         stage('Docker deploy') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'e1e81f62-9fd1-46ed-9f4c-b4e60508f663', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: '83176aa2-6f6b-49ae-b457-a3725b716f65', toolName: 'docker') {
                         sh "docker images"
                         sh "docker run -d -it --rm -p 5000:5000 sai3009/python-webapp:latest"
                     }
