@@ -23,7 +23,7 @@ pipeline {
         stage('Docker deploy') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'f4017afd-4fc7-4021-83c2-6447d4aaa9d7'', toolName: 'docker') {
+                    withDockerRegistry(credentialsId: 'f4017afd-4fc7-4021-83c2-6447d4aaa9d7', toolName: 'docker') {
                         sh "docker images"
                         sh "docker run -d -it --rm -p 5000:5000 sai3009/python-webapp:latest"
                     }
